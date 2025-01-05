@@ -1,0 +1,35 @@
+
+.sidebar{
+    width: 300px;
+}
+.sidebardiv{
+    display: flex;
+    
+    justify-content:space-between;
+    
+    
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.custombtn{
+    border: none;
+    background-color: white;
+    font-size: 18px;
+    font-weight: 700;
+}
+.suboption{
+    
+    display:none;
+    flex-direction: column;
+    gap: 24px;
+    
+}
+.suboption p{
+   color: rgb(221, 211, 211);
+   text-decoration: underline; 
+}
+@media(max-width:768px){
+    .sidebar{
+        display: none;
+    }
+}
