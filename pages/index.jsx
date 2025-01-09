@@ -11,6 +11,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { RxPerson } from "react-icons/rx";
 import { PiLessThanLight } from "react-icons/pi";
 import { useState } from "react";
+
 import ProductCard from "@/components/ProductCard";
 
 
@@ -104,7 +105,7 @@ export default function Home({products}) {
             <br />
            <div style={{display:'flex'}}>
                <div> {isVisible && <SideBar/>}</div>
-               <div  className={styles.productgrid}>
+               <div id="productDivGrid" className={styles.productgrid}>
                     {products.map((product) => (
                           <ProductCard key={product.id} product={product} />
                              ))}
