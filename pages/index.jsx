@@ -11,7 +11,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { RxPerson } from "react-icons/rx";
 import { PiLessThanLight } from "react-icons/pi";
 import { useState } from "react";
-
+import { useRef } from "react";
 import ProductCard from "@/components/ProductCard";
 
 
@@ -26,13 +26,18 @@ export default function Home({products}) {
 
   const handletoggle=()=>{
     setIsvisible(!isVisible);
-    if(isVisible){
-      let mainElement=document.getElementById('productDivGrid');
-      mainElement.style.gridTemplateColumns='repeat(4,1fr)'
-    }else{
-      let mainElement=document.getElementById('productDivGrid');
-      mainElement.style.gridTemplateColumns='repeat(3,1fr)'
+    // if(isVisible){
+    //   let mainElement=document.getElementById('productDivGrid');
+    //   mainElement.style.gridTemplateColumns='repeat(4,1fr)'
+    // }else{
+    //   let mainElement=document.getElementById('productDivGrid');
+    //   mainElement.style.gridTemplateColumns='repeat(3,1fr)'
 
+    // }
+    if (productDivGridRef.current) {
+      productDivGridRef.current.style.gridTemplateColumns = isVisible
+        ? "repeat(4, 1fr)"
+        : "repeat(3, 1fr)";
     }
 
   }
@@ -105,7 +110,7 @@ export default function Home({products}) {
             <br />
            <div style={{display:'flex'}}>
                <div> {isVisible && <SideBar/>}</div>
-               <div id="productDivGrid" className={styles.productgrid}>
+               <div ref={productDivGridRef} id="productDivGrid" className={styles.productgrid}>
                     {products.map((product) => (
                           <ProductCard key={product.id} product={product} />
                              ))}
