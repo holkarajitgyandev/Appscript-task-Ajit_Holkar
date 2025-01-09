@@ -24,7 +24,15 @@ export default function Home({products}) {
 
 
   const handletoggle=()=>{
-    setIsvisible(!isVisible)
+    setIsvisible(!isVisible);
+    if(isVisible){
+      let mainElement=document.getElementById('productDivGrid');
+      mainElement.style.gridTemplateColumns='repeat(4,1fr)'
+    }else{
+      let mainElement=document.getElementById('productDivGrid');
+      mainElement.style.gridTemplateColumns='repeat(3,1fr)'
+
+    }
 
   }
   return (
