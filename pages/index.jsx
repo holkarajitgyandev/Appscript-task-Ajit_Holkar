@@ -23,7 +23,7 @@ export default function Home({products}) {
   const [isVisible,setIsvisible]=useState(true)
 
 
-
+ const productDivGridRef = useRef();
   const handletoggle=()=>{
     setIsvisible(!isVisible);
     // if(isVisible){
